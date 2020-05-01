@@ -1,0 +1,8 @@
+{
+  "1111": {
+    "name": "Ein Sternenbild",
+    "description": "Ein Sternenbild halt.",
+    "step_value": 326,
+    "LEDindex": 12
+  }
+}
