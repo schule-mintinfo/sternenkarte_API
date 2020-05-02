@@ -25,4 +25,9 @@
 - url: 127.0.0.1:5000/date/!datum!
 - Variablen: !datum! = Datum in Tag.Monat
 
-ääää
+####Sternenkarte zeigt bestimmtes Sternenbild
+- url: 127.0.0.1:5000/rotate/!ID!
+- Variablen: !ID! = ID des Sternenbilds
+
+####Reset der Schrittmotoren
+- url: 127.0.0.1:5000/reset
