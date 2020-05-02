@@ -4,7 +4,7 @@ import os
 import json
 import serial
 
-ser = serial.Serial('', baudrate=9600, timeout=1)
+ser = serial.Serial('/dev/ACM0', baudrate=9600, timeout=1)
 app = Flask(__name__)
 
 @app.route('/')
@@ -25,7 +25,6 @@ def reboot():
 def shutdown():
     os.system("sudo shutdown")
     return jsonify({"Nachricht": "System fährt in 1min herunter", "color": "alert-danger"})
-
 
 
 @app.route('/date/<string:data>')
