@@ -8,3 +8,21 @@
 - Sternenkarte dreht sich auf bestimmten Tag stellen
 - Sternenkarte zeigt ein bestimmtes Sternenbild
 - Reset der Schrittmotoren 
+
+####API Status
+- url: 127.0.0.1:5000/
+
+####Aktueller Tag
+- url: 127.0.0.1:5000/date/today
+
+####Neustart des PIs
+- url: 127.0.0.1:5000/reboot
+
+####Herunterfahren des PIs
+- url: 127.0.0.1:5000/shutdown
+
+####Sternenkarte auf bestimmten Tag stellen
+- url: 127.0.0.1:5000/date/!datum!
+- Variablen: !datum! = Datum in Tag.Monat
+
+ääää
