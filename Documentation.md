@@ -31,3 +31,9 @@
 
 ####Reset der Schrittmotoren
 - url: 127.0.0.1:5000/reset
+
+###Vorgesehene Änderungen
+- Schaltjahre werden in den Kalender integriert
+- API Reboot
+- Apache reload
+
