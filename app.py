@@ -4,7 +4,7 @@ import os
 import json
 import serial
 
-ser = serial.Serial('/dev/ACM0', baudrate=9600, timeout=1)
+ser = serial.Serial('COM5', baudrate=9600, timeout=1)
 app = Flask(__name__)
 
 @app.route('/')
@@ -32,13 +32,14 @@ def date(data):
     raw = str(data).rsplit(".")
     tag = raw[0]
     monat = raw[1]
-    with open("MonatsConvert.json", "r") as file1:
+    with open("MonatsConvert.json", "r", encoding='utf-8') as file1:
         data = json.load(file1)
         Tage = data[monat] + int(tag)
-        with open("Daten.json") as file2:
+        with open("Daten.json", "r", encoding='utf-8') as file2:
             data = json.load(file2)
             degree = data[str(Tage)]
-            ser.write("!" + str(degree))
+            cmd = "!" + str(degree)
+            ser.write(cmd.encode(encoding='utf-8'))
     return jsonify({"Nachricht": str(degree), "color": "alert-info"})
 
 
@@ -48,9 +49,11 @@ def ID_User(ID):
         data = json.load(file3)
         steps = data[ID]['step_value']
         LEDindex = data[ID]['LEDindex']
-        ser.write("#" + str(steps))
-        ser.write("-" + str(LEDindex))
-        ser.write("start")
+        cmd = "#" + str(steps)
+        ser.write(cmd.encode(encoding='utf-8'))
+        cmd = "-" + str(LEDindex)
+        ser.write(cmd.encode(encoding='utf-8'))
+        ser.write("start".encode(encoding='utf-8'))
     return jsonify({"Nachricht": {"name": data[ID]['name'], "description": data[ID]['description']}, "color": "alert-info"})
 
 @app.route('/reset')
