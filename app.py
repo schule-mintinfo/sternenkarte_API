@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 import datetime
-import os
+from subprocess import Popen as pop
 import json
 import serial
 
@@ -18,12 +18,12 @@ def heute():
 
 @app.route('/reboot')
 def reboot():
-    os.system("sudo reboot")
+    pop("sudo reboot", shell=False)
     return jsonify({"Nachricht": "System wird neu gestartet", "color": "alert-warning"})
 
 @app.route('/shutdown')
 def shutdown():
-    os.system("sudo shutdown")
+    pop("sudo shutdown", shell=False)
     return jsonify({"Nachricht": "System fährt in 1min herunter", "color": "alert-danger"})
 
 
