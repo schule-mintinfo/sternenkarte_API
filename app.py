@@ -29,8 +29,8 @@ def shutdown():
 
 @app.route('/date/<string:data>')
 def date(data):
-    raw = str(data).rsplit(".")
-    tag = raw[0]
+    raw = str(data).rsplit("-")
+    tag = raw[2]
     monat = raw[1]
     with open("MonatsConvert.json", "r", encoding='utf-8') as file1:
         data = json.load(file1)
