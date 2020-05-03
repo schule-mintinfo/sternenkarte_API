@@ -42,5 +42,4 @@
 ###Vorgesehene Änderungen
 - Schaltjahre werden in den Kalender integriert
 - API Reboot
-- Apache reload
 
